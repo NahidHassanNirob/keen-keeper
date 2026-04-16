@@ -19,7 +19,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar flex flex-col sm:flex-row bg-base-100 shadow-sm">
       <div className="flex-1">
         <Link href={"/"}>
           <Image src={logo} alt="navbar-logo" width={150} height={150}></Image>

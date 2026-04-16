@@ -7,6 +7,7 @@ import {
   MdWifiCalling3,
 } from "react-icons/md";
 import { FaArchive, FaVideo } from "react-icons/fa";
+import ClickBtn from "@/components/shared/ClickBtn";
 
 const FriendDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -28,7 +29,7 @@ const FriendDetailsPage = async ({ params }) => {
     <>
       <div className="max-w-7xl flex flex-col gap-4 mx-auto my-5 px-3 sm:px-4">
         <div className="grid gap-4 md:grid-cols-3 md:grid-rows-[1fr_1fr]">
-          {/* Profile */}
+          
           <div className="md:col-span-1 md:row-span-2 text-center space-y-2 bg-white rounded-md shadow py-5 px-3">
             <div>
               <Image
@@ -55,7 +56,7 @@ const FriendDetailsPage = async ({ params }) => {
               {status}
             </p>
 
-            {/* FIX: tags wrap */}
+            
             <div className="flex flex-wrap justify-center gap-2">
               {tags.map((tag, index) => (
                 <span key={index} className="badge bg-[#CBFADB] text-[#244D3F]">
@@ -68,7 +69,7 @@ const FriendDetailsPage = async ({ params }) => {
             <p className=" italic text-sm">{email}</p>
           </div>
 
-          {/* Stats */}
+          
           <div className="md:col-span-2 md:row-span-1 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <div className="text-center shadow bg-white rounded-md flex items-center justify-center p-4">
               <div>
@@ -100,7 +101,7 @@ const FriendDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-          {/* Relationship Goal */}
+          
           <div className="md:col-span-2 md:row-span-1 grid items-center bg-white px-4 py-4 shadow rounded-md">
             <div>
               <div className="flex flex-col  sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -143,20 +144,7 @@ const FriendDetailsPage = async ({ params }) => {
               <h2 className="font-bold text-xl text-[#434953]">
                 Quick Check-In
               </h2>
-              <div className="grid sm:grid-cols-3 gap-4 font-bold ">
-                <div className="flex flex-col items-center justify-center space-y-1 p-2 bg-[#F3F5F7]  rounded-md shadow">
-                  <MdWifiCalling3 className="text-2xl text-[#434953]" />
-                  <h2 className="font-semibold text-lg">Call</h2>
-                </div>
-                <div className="flex flex-col items-center justify-center space-y-1  p-2 bg-[#F3F5F7]  rounded-md shadow">
-                  <MdOutlineMessage className="text-2xl text-[#434953]" />
-                  <h2 className="font-semibold text-lg">text</h2>
-                </div>
-                <div className="flex flex-col items-center justify-center space-y-1 p-2 bg-[#F3F5F7]  rounded-md shadow">
-                  <FaVideo className="text-2xl text-[#434953]" />
-                  <h2 className="font-semibold text-lg">video</h2>
-                </div>
-              </div>
+                <ClickBtn Data={filterData}></ClickBtn>
             </div>
           </div>
         </div>{" "}
