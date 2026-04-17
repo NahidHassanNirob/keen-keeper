@@ -3,7 +3,7 @@ import BannerCard from "./BannerCard";
 
 const Banner = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 my-5">
+    <div className="container mx-auto px-3 my-5">
       <div className=" text-center space-y-3">
         <h2 className="text-3xl font-bold text-[#244D3F]">
           Friends to keep close in your life
