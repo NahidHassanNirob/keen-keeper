@@ -1,10 +1,10 @@
-# FriendFlow
+# keen-keeper
 
 A social CRM application to manage friend interactions, track communication history, and visualize friendship analytics.
 
 ## Important Links
-- **Live Website:** [KeenKeeper Live](https://friendflow-iota.vercel.app/)
-- **GitHub Repository:** [KennKeeper Repo](https://github.com/NahidHassanNirob)
+- **Live Website:** [keen-eeper Live](https://keen-keepers.vercel.app)
+- **GitHub Repository:** [kenn-keeper Repo](https://github.com/NahidHassanNirob/keen-keeper)
 
 ## Technologies Used
 - **Framework:** Next.js (App Router)
