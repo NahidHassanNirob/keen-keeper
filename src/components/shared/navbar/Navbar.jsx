@@ -19,7 +19,8 @@ const Navbar = () => {
     },
   ];
   return (
-    <div className="navbar flex flex-col sm:flex-row bg-base-100 shadow-sm">
+    <div className="bg-white">
+      <div className="navbar sha container mx-auto flex flex-col sm:flex-row  ">
       <div className="flex-1">
         <Link href={"/"}>
           <Image src={logo} alt="navbar-logo" width={150} height={150}></Image>
@@ -36,6 +37,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+    </div>
     </div>
   );
 };
