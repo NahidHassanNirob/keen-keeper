@@ -2,7 +2,7 @@
 import { FriendsContext } from "@/context/friendsContext";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { FaVideo } from "react-icons/fa";
+import { FaHistory, FaVideo } from "react-icons/fa";
 import { MdWifiCalling3, MdOutlineMessage } from "react-icons/md";
 
 const TimeLineCard = () => {
@@ -12,7 +12,7 @@ const TimeLineCard = () => {
     <div>
       {timeLine.length===0? <div className="flex flex-col items-center justify-center min-h-[75vh] text-center px-4">
       <div className="bg-gray-100 pb-3 rounded-full">
-        <span className="text-5xl">📅</span>
+        <span className="text-5xl"><FaHistory /></span>
       </div>
       <h2 className="text-2xl font-bold text-gray-800">No History Found</h2>
       <p className="text-gray-500 mt-2 max-w-xs mx-auto">
