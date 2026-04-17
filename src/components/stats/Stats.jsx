@@ -1,13 +1,14 @@
 "use client";
 import React, { useContext } from "react";
-import { PieChart, Pie, ResponsiveContainer, Legend } from "recharts";
-import { FriendsContext } from "@/context/friendsContext";
-import { Cell } from "./../../../node_modules/recharts/es6/component/Cell";
-import Link from "next/link";
-const Stats = () => {
-  const { timeLine } = useContext(FriendsContext);
 
-  const dataCount = timeLine.reduce(
+import { PieChart, Pie, ResponsiveContainer, Legend, Tooltip, Cell } from "recharts";
+import { FriendsContext } from "@/context/friendsContext";
+import Link from "next/link";
+
+const Stats = () => {
+  const { timeLine,allTimeLine } = useContext(FriendsContext);
+
+  const dataCount = allTimeLine.reduce(
     (acc, item) => {
       const type = item.type.toLowerCase();
       if (type === "call") acc[0].value += 1;
@@ -19,17 +20,18 @@ const Stats = () => {
       { name: "Call", value: 0 },
       { name: "Text", value: 0 },
       { name: "Video", value: 0 },
-    ],
+    ]
   );
 
   const COLORS = ["#244D3F", "#8B5CF6", "#34A853"];
+
   return (
     <div className="container mx-auto px-3 my-5">
       <h1 className="lg:text-2xl text-left font-bold mb-2 text-[#434953]">
         Friendship Analytics
       </h1>
       {timeLine.length === 0 ? (
-        <div className="flex  flex-col items-center justify-center min-h-[75vh] text-center px-4  rounded-md   ">
+        <div className="flex flex-col items-center justify-center min-h-[75vh] text-center px-4 rounded-md">
           <div className="text-5xl pb-3">📈</div>
           <h2 className="text-2xl font-bold text-gray-800">
             Analytics Not Ready
@@ -39,20 +41,30 @@ const Stats = () => {
             Keep in touch with your friends to unlock your stats!
           </p>
           <Link
-        href="/" 
-        className="mt-6 px-6 py-2 bg-[#244D3F] text-white rounded-lg hover:bg-[#1a3a30] transition-colors"
-      >
-        Go to Home
-      </Link>
+            href="/"
+            className="mt-6 px-6 py-2 bg-[#244D3F] text-white rounded-lg hover:bg-[#1a3a30] transition-colors"
+          >
+            Go to Home
+          </Link>
         </div>
       ) : (
-        <>
-          <div className="h-[400px] w-[100%]  bg-white shadow rounded-md p-5">
-            <h2 className="font-semibold text-left text-[18px]">
-              By Interaction Type
-            </h2>
-            <ResponsiveContainer width="100%" height="100%">
+        <div className="h-[450px] w-full bg-white shadow rounded-md p-5 flex flex-col">
+          <h2 className="font-semibold text-left text-[18px] mb-4">
+            By Interaction Type
+          </h2>
+          
+          <div className="relative flex-1 w-full min-h-[300px]">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <PieChart>
+                
+                <Tooltip 
+                  contentStyle={{ 
+                    borderRadius: "10px", 
+                    border: "none", 
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)" 
+                  }}
+                />
+                
                 <Pie
                   data={dataCount}
                   cx="50%"
@@ -67,6 +79,7 @@ const Stats = () => {
                       key={`cell-${index}`}
                       fill={COLORS[index % COLORS.length]}
                       stroke="none"
+                      style={{ outline: 'none' }} 
                     />
                   ))}
                 </Pie>
@@ -74,7 +87,7 @@ const Stats = () => {
               </PieChart>
             </ResponsiveContainer>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

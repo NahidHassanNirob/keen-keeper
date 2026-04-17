@@ -33,7 +33,7 @@ export default function NotFound() {
        
       </div>
 
-      {/* সাজানোর জন্য নিচে কিছু ডট */}
+      
       <div className="flex gap-2 mt-12">
         <div className="w-3 h-3 rounded-full bg-green-200"></div>
         <div className="w-3 h-3 rounded-full bg-green-400"></div>
